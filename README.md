@@ -17,8 +17,27 @@ Before you install and run the game, make sure you have the following:
 ## Installation
 
 To set up the SET game on your local system, follow these steps: Clone the Repository:
+
+**Step 1: Clone the Repository**
+
+First, clone the repository to your local machine. Open your terminal or command prompt and execute the following commands:
 git clone [https://github.com/Ruohann/SET](https://github.com/chuuu339/SET-Chu-Tongxin/edit/main/README.md) cd SET
+
+
 ```git clone [https://github.com/Ruohann/SET]cd SET```
+
+**Step 2: Navigate to the Game Directory**
+
+Ensure that you are in the directory containing the game's Python script. This directory should also include all necessary game assets like images and sound files if any.
+
+```cd path/to/game_directory ```
+
+**Step 3: Run the Game**
+To start the game, simply run the game.py script using Python. Make sure Python is installed on your system. Type the following command in your terminal:
+
+```python game.py```
+
+After executing the command, a new window will display the game interface, allowing you to start playing immediately.
 
 ## Game Interface
 
