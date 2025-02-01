@@ -42,4 +42,55 @@ The player's score is displayed at the top left corner of the window. The score 
 
 There is a countdown timer displayed at the top right corner of the window. The duration of the timer can be set at the beginning of the game based on the selected difficulty level. The game ends when the timer runs out.
 
+**New Game**
+
+This button allows players to start a new game. It resets the score, shuffles the deck, and reinitializes the card display.
+
+## How It Works: Detailed Explanation of the SET Card Game Code
+
+**Card Class**
+
+Each card in the game is represented by an instance of the Card class. This class encapsulates the properties needed to define a card's attributes such as number, symbol, color, and shading.
+
+```class Card:
+    def __init__(self, number, symbol, color, shading):
+        self.number = number
+        self.symbol = symbol
+        self.color = color
+        self.shading = shading
+        self.selected = False
+```
+**Deck Generation**
+
+The game starts by generating a deck of cards using all possible combinations of numbers, symbols, colors, and shadings. The deck is then shuffled to ensure randomness.
+
+```def generate_deck():
+    numbers = [1, 2, 3]
+    symbols = ['oval', 'triangle', 'diamond']
+    colors = [COLOR1, COLOR2, COLOR3]
+    shadings = ['solid', 'transparent', 'open']
+    deck = [Card(number, symbol, color, shading) for number in numbers for symbol in symbols for color in colors for shading in shadings]
+    shuffle(deck)
+    return deck
+```
+
+**Displaying Cards**
+
+Cards are displayed on the screen using the draw_card function, which positions each card based on its index in the card display grid and draws it accordingly. It also highlights selected cards.
+
+```def draw_card(card, x, y):
+    pygame.draw.rect(screen, SHADOW_COLOR, (x + shadow_offset, y + shadow_offset, card_width, card_height), border_radius=corner_radius)
+    pygame.draw.rect(screen, WHITE, (x, y, card_width, card_height), border_radius=corner_radius)
+    if card.selected:
+        pygame.draw.rect(screen, SELECTED_COLOR, (x, y, card_width, card_height), border_radius=corner_radius)
+    screen.blit(card.image, (x, y))
+```
+
+
+
+
+
+
+
+
 
