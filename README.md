@@ -86,6 +86,41 @@ Cards are displayed on the screen using the draw_card function, which positions 
     screen.blit(card.image, (x, y))
 ```
 
+**Game Logic for Sets**
+
+The game checks if three selected cards form a valid set based on the rules of SET, where each attribute must either be all the same or all different across the three cards.
+
+```def is_set(card1, card2, card3):
+    return all([
+        len({getattr(card1, attr), getattr(card2, attr), getattr(card3, attr)}) in {1, 3}
+        for attr in ['number', 'symbol', 'color', 'shading']
+    ])
+```
+
+**Event Handling and Game Loop**
+
+The game handles user interactions and updates the game state accordingly. It processes mouse clicks to select or deselect cards and checks if three cards form a set upon selection.
+
+```def main():
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                # Determine if a card was clicked and toggle selection
+                for idx, card in enumerate(table_cards):
+                    card_x = start_x + (card_width + card_spacing) * (idx % cols)
+                    card_y = start_y + (card_height + card_spacing) * (idx // cols)
+                    if card_x <= x <= card_x + card_width and card_y <= y <= card_y + card_height:
+                        card.selected = not card.selected
+                        if card.selected:
+                            selected_cards.append(card)
+                        else:
+                            selected_cards.remove(card)
+```
+
 
 
 
