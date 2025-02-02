@@ -338,9 +338,9 @@ def main():
 
 def main():
     # Display the time selection menu and get the selected time
-    time_limit = display_time_menu()  # 调用时间选择菜单
+    time_limit = display_time_menu()  #  Calling the time selection menu
 
-    # 游戏变量初始化
+    # Initialization of play variables
     deck = generate_deck()
     table_cards = deck[:12]
     selected_cards = []
@@ -348,7 +348,7 @@ def main():
     timer = pygame.time.Clock()
     elapsed_time = 0
 
-    # 游戏主循环
+    # The main loop of the game
     running = True
     while running:
         for event in pygame.event.get():
